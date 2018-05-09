@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SMlab</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href='http://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+    <header class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
+        <%= link_to "App", root_path, id: "logo", data: { turbolinks: false }  %>
+        <nav>
+          <ul class="nav navbar-nav">
+            <li class="<%= 'active' if current_page?(pages_photos_path) %>">
+              <%= link_to "Photos", pages_photos_path, data: { turbolinks: false }  %>
+            </li>
+            <li class="<%= 'active' if current_page?(pages_videos_path) %>">
+              <%= link_to "Videos", pages_videos_path, data: { turbolinks: false }  %>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div class="container">
+      <div id="app">
+        <%= yield %>
+      </div>
+    </div>
+  </body>
+</html>
